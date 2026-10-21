@@ -310,29 +310,6 @@ if st.button("Calculate predicted risks", type="primary"):
         st.exception(error)
         st.stop()
 
-    '''
-    st.subheader("Predicted outcomes")
-
-    display_results = results.copy()
-    display_results["Predicted probability"] = (
-        display_results["Predicted probability"]
-        .map(lambda value: f"{value:.1%}")
-    )
-    display_results["Classification threshold"] = (
-        display_results["Classification threshold"]
-        .map(lambda value: f"{value:.1%}")
-    )
-    display_results["Above selected threshold"] = (
-        display_results["Above selected threshold"]
-        .map({True: "Yes", False: "No"})
-    )
-
-    st.dataframe(
-        display_results,
-        hide_index=True,
-        use_container_width=True,
-    )
-    '''
     st.metric(
         "Composite perinatal risk score",
         f"{composite_score:.1%}",
