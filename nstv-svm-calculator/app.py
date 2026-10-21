@@ -6,7 +6,7 @@ import streamlit as st
 from joblib import load
 
 st.set_page_config(
-    page_title="NTSV Adverse Perinatal Outcome Calculator",
+    page_title="P-RADS (Perinatal Risk Assessment Descriptor System)",
     page_icon="🩺",
     layout="centered",
 )
@@ -245,7 +245,7 @@ def calculate_predictions(model_payloads, patient_frame):
     return pd.DataFrame(output), composite_score
 
 
-st.title("NTSV Adverse Perinatal Outcome Calculator")
+st.title("P-RADS (Perinatal Risk Assessment Descriptor System)")
 st.caption(
     "Proof-of-concept calculator using three separately saved, "
     "calibrated support vector machine models."
@@ -310,6 +310,7 @@ if st.button("Calculate predicted risks", type="primary"):
         st.exception(error)
         st.stop()
 
+    '''
     st.subheader("Predicted outcomes")
 
     display_results = results.copy()
@@ -331,7 +332,7 @@ if st.button("Calculate predicted risks", type="primary"):
         hide_index=True,
         use_container_width=True,
     )
-
+    '''
     st.metric(
         "Composite perinatal risk score",
         f"{composite_score:.1%}",
